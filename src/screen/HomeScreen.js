@@ -38,11 +38,11 @@ const styles = StyleSheet.create({
         borderColor:'rgba(0,0,0,0.2)',
         alignItems:'center',
         justifyContent:'center',
-        width:80,
-        height:80,
+        width:70,
+        height:70,
         backgroundColor:'dodgerblue',
         borderRadius:50,
-        elevation: 6
+        elevation: 9
      },
      iconContainer :{
          color: 'white',
