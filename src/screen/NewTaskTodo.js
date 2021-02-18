@@ -1,14 +1,14 @@
 import { StatusBar } from "expo-status-bar"; 
 import React, { Component } from "react"; 
 import { Button, SafeAreaView, StyleSheet, Modal, 
-		View, TextInput, Dimensions,Text ,TouchableOpacity, Touchable} from "react-native"; 
+		View, TextInput, Dimensions,Text ,TouchableOpacity,} from "react-native"; 
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 		
 const { width } = Dimensions.get("window"); 
-
 class NewTaskTodo extends Component {	
-    state = {
+	
+	state = {
         text: ''
     }
 
@@ -45,6 +45,7 @@ export default connect()(NewTaskTodo);
 const styles = StyleSheet.create({ 
 	screen: { 
 		flex: 1, 
+		height:"100%",
 		alignItems: "center", 
 		justifyContent: "center", 
 		backgroundColor: "#fff", 

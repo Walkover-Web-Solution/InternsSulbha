@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity,Dimensions ,ScrollView,Keyboard} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Dimensions ,ScrollView,keyboardDismissMode} from 'react-native';
 import TodoApp from '../TodoApp'
 import store from '../store'
 import { Provider } from 'react-redux'
@@ -8,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons'
 const HomeScreen = props =>{ 
     return(
         <View style={{flex:1}}>
-            <ScrollView style={{flex:1}}>
+            <ScrollView style={{flex:1}} keyboardDismissMode="on-drag">
                 <Provider store={store}>
                     <TodoApp />
                  </Provider>
