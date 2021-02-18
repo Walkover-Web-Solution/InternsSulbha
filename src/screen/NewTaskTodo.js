@@ -25,15 +25,15 @@ class NewTaskTodo extends Component {
 	return ( 
 				<View style={styles.viewWrapper}> 
 					<View style={styles.modalView}>
-                    <Text style={{fontWeight: "bold",paddingBottom:10,paddingTop:15,fontSize:19,color:'dodgerblue'}}> Add New Task </Text>
+                    <Text style={{fontWeight: "bold",paddingBottom:10,paddingTop:7,fontSize:21,color:'dodgerblue'}}> Add New Task </Text>
 						<TextInput placeholder="Enter New Task..."
 						         multiline={true} 
 								 style={styles.textInput} 
 								 onChangeText={(text) => this.setState({ text })}
 								 value={this.state.text} /> 
 
-                        <TouchableOpacity onPress={() => this.addTodo(this.state.text)} style={{width:100,height:100,paddingTop:10}}>
-						<Button title="ADD"  style={{width:40}} />
+                        <TouchableOpacity  style={{width:100,height:40,paddingTop:7,paddingBottom:7}}>
+						 <Button title="ADD" onPress={() => this.addTodo(this.state.text)}/>
                         </TouchableOpacity> 
 					</View> 
 				</View> 
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
 	}, 
 	modalView: { 
 		alignItems: "center",
-        paddingTop:30, 
+        paddingTop:2, 
 		justifyContent: "center", 
 		position: "absolute", 
 		top: "50%", 
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
 		elevation: 5, 
 		transform: [{ translateX: -(width * 0.392) }, 
 					{ translateY: -170 }], 
-		height: 220, 
+		height: 250, 
 		width: width * 0.8, 
 		backgroundColor: "#fff", 
 		borderRadius: 7, 
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
 	textInput: { 
 		textAlignVertical: 'top',
 		width: "80%", 
-        height:"60%",
+        height:"47%",
 		borderRadius: 5, 
 		paddingVertical: 8, 
 		paddingHorizontal: 16, 
