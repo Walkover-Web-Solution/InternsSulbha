@@ -1,32 +1,46 @@
 import { StatusBar } from "expo-status-bar"; 
-import React, { useState } from "react"; 
+import React, { Component } from "react"; 
 import { Button, SafeAreaView, StyleSheet, Modal, 
 		View, TextInput, Dimensions,Text ,TouchableOpacity, Touchable} from "react-native"; 
-
+import { connect } from 'react-redux'
+import { addTodo } from '../actions'
+		
 const { width } = Dimensions.get("window"); 
 
-export default function App() { 
+class NewTaskTodo extends Component {	
+    state = {
+        text: ''
+    }
 
-	const [inputValue, setInputValue] = useState(""); 
+    addTodo = (text) => {
+        //redux store 
+        if(!text){
+            return
+        }
+        this.props.dispatch(addTodo(text))
+        this.setState({ text: '' })
+    }
+
+     render(){
 	return ( 
-		<SafeAreaView style={styles.screen}> 
-			<StatusBar style="auto" /> 
-
 				<View style={styles.viewWrapper}> 
 					<View style={styles.modalView}>
-                    <Text style={{fontWeight: "bold",paddingBottom:10,paddingTop:10,fontSize:19,color:'dodgerblue'}}> Add New Task </Text>
-						<TextInput placeholder="Enter List..."
-								value={inputValue} style={styles.textInput} 
-								onChangeText={(value) => setInputValue(value)} /> 
+                    <Text style={{fontWeight: "bold",paddingBottom:10,paddingTop:15,fontSize:19,color:'dodgerblue'}}> Add New Task </Text>
+						<TextInput placeholder="Enter New Task..."
+						         multiline={true} 
+								 style={styles.textInput} 
+								 onChangeText={(text) => this.setState({ text })}
+								 value={this.state.text} /> 
 
-                        <TouchableOpacity style={{width:100,height:100,paddingTop:20}}>
+                        <TouchableOpacity onPress={() => this.addTodo(this.state.text)} style={{width:100,height:100,paddingTop:10}}>
 						<Button title="ADD"  style={{width:40}} />
                         </TouchableOpacity> 
 					</View> 
 				</View> 
-		</SafeAreaView> 
 	); 
 } 
+}
+export default connect()(NewTaskTodo);
 
 const styles = StyleSheet.create({ 
 	screen: { 
@@ -40,7 +54,7 @@ const styles = StyleSheet.create({
         flex:1,
 		alignItems: "center", 
 		justifyContent: "center", 
-		backgroundColor: "rgba(0, 0, 0, 0.2)", 
+		backgroundColor: "rgba(0, 0, 0, 0.006)", 
 	}, 
 	modalView: { 
 		alignItems: "center",
@@ -50,14 +64,15 @@ const styles = StyleSheet.create({
 		top: "50%", 
 		left: "50%", 
 		elevation: 5, 
-		transform: [{ translateX: -(width * 0.9) }, 
-					{ translateY: -200 }], 
+		transform: [{ translateX: -(width * 0.392) }, 
+					{ translateY: -170 }], 
 		height: 220, 
 		width: width * 0.8, 
 		backgroundColor: "#fff", 
 		borderRadius: 7, 
 	}, 
 	textInput: { 
+		textAlignVertical: 'top',
 		width: "80%", 
         height:"60%",
 		borderRadius: 5, 

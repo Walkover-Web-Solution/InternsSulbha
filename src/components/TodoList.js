@@ -26,7 +26,7 @@ const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
 <FlatList
   data={data}
   renderItem={(item) => (
-    <View style={{ flex:1, padding:20,margin:5,flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
+    <View style={{ flex:1,paddingLeft:7, paddingTop:4,margin:5,flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
     <TouchableOpacity
     style={{maxWidth:85+"%"}}
     key={item.item.id} onPress={() => toggleTodo(item.item.id)}>
